@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Activity: Promise Chain</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        padding: 20px;
+      }
+      button {
+        margin-right: 8px;
+      }
+      pre {
+        background: #f6f6f6;
+        padding: 12px;
+        border-radius: 6px;
+        max-width: 800px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Activity: Promise Chain</h1>
+    <p>
+      Use the buttons below to run each task. Open the browser console for extra
+      info.
+    </p>
+
+    <div>
+      <button id="run-traffic">Run traffic light chain</button>
+      <button id="run-traffic-broken">Run chain (step 2 = "broken")</button>
+      <button id="run-all">Run Promise.all demo</button>
+    </div>
+
+    <h3>Output</h3>
+    <pre id="out"></pre>
+
+    <script defer src="promise_chain.js"></script>
+  </body>
+</html>
