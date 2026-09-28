@@ -1,4 +1,5 @@
 const express = require("express");
+const authRoutes = require("./routes/auth");
 const connectDB = require("./config/db");
 const Student = require("./models/Student");
 const app = express();
@@ -45,6 +46,9 @@ app.post("/api/students", async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
+
+app.use("/api/auth", authRoutes);
+
 app.patch("/api/students/:id", async (req, res) => {
   try {
     const updated = await Student.findByIdAndUpdate(req.params.id, req.body, {
