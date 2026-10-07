@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const auth = require("../middleware/auth");
 
 const router = express.Router();
 // POST /api/auth/register
@@ -57,6 +58,14 @@ router.post("/login", async (req, res) => {
       error: "Server error",
     });
   }
+});
+
+// GET /api/auth/me - return id and role for authenticated user
+router.get("/me", auth, async (req, res) => {
+  res.json({
+    id: req.user.id,
+    role: req.user.role,
+  });
 });
 
 module.exports = router;
